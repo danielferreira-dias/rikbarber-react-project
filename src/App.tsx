@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-import Navbar from './Components/Navbar'
+import { Navbar } from './Components/Navbar'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <section className='w-full bg-zinc-900 h-screen flex justify-center items-center'>
         <div className="text-white">First Section</div>
       </section>
-      <section className='w-full bg-white h-screen flex justify-center items-center'>
+      <section className='w-full bg-zinc-800 h-screen flex justify-center items-center'>
         <div className="text-black">Second Section</div>
       </section>
     </div>
