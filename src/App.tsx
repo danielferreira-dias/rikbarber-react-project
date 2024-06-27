@@ -1,11 +1,18 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-function App() {
+import Navbar from './Components/Navbar'
 
+function App() {
   return (
     <div>
-      <section className='w-full bg-black h-svh'></section>
+      <Navbar />
+      <section className='w-full bg-zinc-900 h-screen flex justify-center items-center'>
+        <div className="text-white">First Section</div>
+      </section>
+      <section className='w-full bg-white h-screen flex justify-center items-center'>
+        <div className="text-black">Second Section</div>
+      </section>
     </div>
   )
 }
