@@ -3,6 +3,7 @@ import './App.css'
 import Gallery from './Components/Gallery';
 import { Navbar } from './Components/Navbar'
 import Home from './Components/Home';
+import Prices from './Components/Prices';
 
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -29,8 +30,8 @@ function App() {
         <Gallery />
       </section>
 
-      <section className='w-full bg-zinc-900 h-screen flex justify-center items-center'>
-        <div className="text-white">Third Section</div>
+      <section className='w-full bg-zinc-900 h-fit py-10 flex flex-col  justify-center items-center'>
+        <Prices />
       </section>
 
     </div>

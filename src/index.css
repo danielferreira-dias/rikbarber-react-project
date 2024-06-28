@@ -48,4 +48,11 @@
     font-weight: 600;
     font-style: normal;
   }
+
+  .teko-secondary{
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
   

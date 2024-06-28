@@ -24,7 +24,7 @@ const Navbar = () => {
                     <div className='h-14 w-32 xl:w-72'>
                         <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-14 w-24 md:w-28 lg:h-18 lg:w-32 xl:w-72' />
                     </div>
-                    <div className='hidden md:flex gap-x-2 teko text-2xl 2xl:text-4xl'>
+                    <div className='hidden md:flex gap-x-2 teko text-2xl xl:text-3xl 2xl:text-4xl'>
                         {menuItems.map(item => (
                             <div key={item.id} className="py-5 text-white  font-semibold hover:transform hover:scale-105 transition-transform">
                                 <a href="" className='p-5'>{item.label}</a>
