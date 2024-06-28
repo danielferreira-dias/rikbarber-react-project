@@ -44,7 +44,7 @@ const Gallery: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className='hidden md:flex md:flex-col text-white teko h-[50vh]'>
+            <div className='hidden md:flex md:flex-col text-white teko h-[50vh] border-b-2 border-b-custom-gold'>
                 <h1 className=' text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl'>DESCOBRE</h1>
                 <h1 className=' text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl'>O MEU</h1>
                 <h1 className=' text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl text-custom-gold'>TRABALHO</h1>
