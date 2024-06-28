@@ -25,7 +25,7 @@ function App() {
         <Home />
       </section>
 
-      <section className='w-full bg-zinc-950 h-screen flex justify-evenly items-center flex-col'>
+      <section className='w-full bg-zinc-950 h-screen flex justify-evenly items-center flex-col md:flex-row md:justify-center md:gap-x-8'>
         <Gallery />
       </section>
 
