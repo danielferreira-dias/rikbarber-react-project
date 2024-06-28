@@ -11,15 +11,15 @@ const Navbar = () => {
 
     const menuItems = [
         { id: 1, label: 'Home' },
-        { id: 2, label: 'About us' },
-        { id: 3, label: 'Services' },
-        { id: 4, label: 'Booking' },
-        { id: 5, label: 'Shop' },
+        { id: 2, label: 'Sobre' },
+        { id: 3, label: 'Galeria' },
+        { id: 4, label: 'Serviços' },
+        { id: 5, label: 'Agendar' },
     ];
 
     return (
         <>
-            <div className="h-14 xs:h-20 lg:h-20 xl:h-28 2xl:h-32 bg-zinc-950 sticky lg:relative top-0 z-50 text-lg lg:text-xl xl:text-2xl">
+            <div className="h-14 xs:h-20 lg:h-20 xl:h-28 2xl:h-28 bg-zinc-950 sticky lg:relative top-0 z-50 text-lg lg:text-xl xl:text-2xl">
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-52 flex justify-between items-center h-full'>
                     <div className='h-14 w-32 xl:w-72'>
                         <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-14 w-24 md:w-28 lg:h-18 lg:w-32 xl:w-72' />
@@ -30,7 +30,7 @@ const Navbar = () => {
                                 <a href="" className='p-5'>{item.label}</a>
                             </div>
                         ))}
-                        <a href="" className='text-white font-semibold p-5 hover:transform hover:scale-105 transition-transform'>Contact</a>
+                        <a href="" className='text-white font-semibold p-5 hover:transform hover:scale-105 transition-transform'>Contactos</a>
                     </div>
                     <div className='md:hidden'>
                         <svg onClick={toggleMenu} className="h-10 w-fit cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" strokeWidth=".6" fill="rgba(0,0,0,0)" strokeLinecap="round">
@@ -57,7 +57,7 @@ const Navbar = () => {
                         </li>
                     ))}
                     <li className="py-2 hover:transform hover:scale-105 transition-transform">
-                        <a href="#" className="p-4 block">Contact</a>
+                        <a href="#" className="p-4 block">Contactos</a>
                     </li>
                     <li className="py-2 hover:transform hover:scale-105 transition-transform">
                         <a href="#" className="p-4 block"></a>
