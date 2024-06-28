@@ -33,7 +33,7 @@ const Gallery: React.FC = () => {
     return (
         <>
             <div className='flex flex-col text-white'>
-                <h1 className='great-vibes-regular text-4xl sm:text-6xl'>Galeria</h1>
+                <h1 className='great-vibes-regular text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl'>Galeria</h1>
             </div>
             <div className='h-[50vh] w-full overflow-hidden flex items-center'>
                 <div className='flex flex-row items-center justify-start gap-x-2 overflow-x-auto no-scrollbar h-full' ref={scrollContainerRef}>
