@@ -39,7 +39,13 @@
 
   .great-vibes-regular {
     font-family: "Great Vibes", cursive;
-    font-weight: 400;
+    font-style: normal;
+  }
+
+  .teko{
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
   }
   

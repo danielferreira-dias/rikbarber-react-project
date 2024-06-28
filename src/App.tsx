@@ -20,6 +20,7 @@ function App() {
       <motion.div
         className="fixed bottom-0 left-0 right-0 progress-bar bg-red-500"
         style={{ scaleX }} />
+
       <section className="w-full h-screen flex justify-center items-center bg-transparent">
         <Home />
       </section>

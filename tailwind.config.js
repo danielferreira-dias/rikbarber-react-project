@@ -31,7 +31,11 @@ export default {
       // => @media (min-width: 1700px) { ... }
 
     },
-
+    extend: {
+      colors: {
+        'custom-gold': '#96885f',
+      },
+    },
   },
   plugins: [],
 
