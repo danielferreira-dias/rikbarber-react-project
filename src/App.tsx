@@ -23,7 +23,7 @@ function App() {
         <div className="text-white">First Section</div>
       </section>
 
-      <section className='w-full bg-zinc-900 h-screen flex justify-center items-center'>
+      <section className='w-full bg-zinc-950 h-screen flex justify-evenly items-center flex-col'>
         <Gallery />
       </section>
 
