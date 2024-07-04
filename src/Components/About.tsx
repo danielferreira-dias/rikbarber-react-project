@@ -20,7 +20,7 @@ const About = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <h1 className='text-2xl xs:text-3xl sm:text-5xl 2xl:text-7xl text-custom-gold teko mt-10'> CONTACTO</h1>
+                <h1 className='text-2xl xs:text-3xl sm:text-5xl 2xl:text-7xl text-custom-gold teko mt-5'> CONTACTO</h1>
                 <div className='flex w-full flex-row  justify-start gap-x-10'>
                     <button className='w-16 h-16 xs:w-20 xs:h-20 3xl:w-32 3xl:h-32 border-white border-opacity-50 border-4 mt-10 flex justify-center items-center'>
                         <img src="gmail.svg" alt="Gmail" className='w-1/2 h-1/2 grayscale' />

@@ -13,7 +13,7 @@ const Prices = () => {
                         Our services spectrum encompasses many techniques and procedures, from straight hairstyling to face care.
                     </p>
                 </div>
-                <div className='flex flex-col mt-10 text-2xl 2xl:text-5xl'>
+                <div className='flex flex-col mt-10 text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl'>
                     <ul className='teko-secondary text-white flex flex-col gap-y-10'>
                         <li className='flex justify-between border-b-2 pb-10'>
                             <p className='w-fit'>HAIRCUT</p>
