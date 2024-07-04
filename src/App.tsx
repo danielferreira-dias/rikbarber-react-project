@@ -20,7 +20,7 @@ function App() {
     <div className='bg-zinc-900'>
       <Navbar />
       <motion.div
-        className="fixed bottom-0 left-0 right-0 progress-bar bg-red-500"
+        className="fixed bottom-0 left-0 right-0 z-50 progress-bar bg-red-500"
         style={{ scaleX }} />
 
       <section className="w-full h-screen flex justify-center items-center bg-transparent">
@@ -35,13 +35,11 @@ function App() {
         <Prices />
       </section>
 
-      <section className='w-full bg-custom-black h-fit lg:h-256  py-10 flex flex-col  justify-center items-center'>
+      <section className='w-full bg-custom-black h-fit  py-10 flex flex-col  justify-center items-center'>
         <About />
       </section>
 
-      <section className='w-full bg-custom-black h-fit lg:h-256  py-10 flex flex-col  justify-center items-center'>
-        <About />
-      </section>
+
 
     </div>
   )

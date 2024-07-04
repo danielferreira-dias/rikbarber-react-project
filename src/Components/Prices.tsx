@@ -36,11 +36,11 @@ const Prices = () => {
                 <div className='flex flex-col md:flex-col justify-between mt-10 gap-x-2 md:gap-y-2 px-2 w-full'>
                     <h1 className=' text-2xl xs:text-3xl sm:text-4xl 2xl:text-6xl w-2/3 teko text-white'>PESQUISA SOBRE OS MEUS <span className='text-custom-gold'>SERVIÇOS</span></h1>
                     <div className='flex flex-col sm:flex-row gap-y-5 w-full items-center justify-center my-10 gap-x-2'>
-                        <div className='flex w-72 h-72 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-96 xl:h-96 border-2 border-white border-opacity-30 flex-col items-center justify-center gap-y-5 px-10 md:px-5'>
+                        <div className='flex w-3/4 h-72 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-96 xl:h-96 border-2 border-white border-opacity-30 flex-col items-center justify-center gap-y-5 px-10 md:px-5'>
                             <img src="beard.svg" alt="" className='w-12 md:w-8 lg:w-14 xl:w-20' />
                             <p className='text-white text-sm md:text-xs lg:text-sm xl:text-xl'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
-                        <div className='flex w-72 h-72 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-96 xl:h-96 border-2 border-white border-opacity-30 flex-col items-center justify-center gap-y-5 px-10 md:px-5'>
+                        <div className='flex w-3/4 h-72 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-96 xl:h-96 border-2 border-white border-opacity-30 flex-col items-center justify-center gap-y-5 px-10 md:px-5'>
                             <img src="hair.svg" alt="" className='w-10 md:w-6 lg:w-12 xl:w-16' />
                             <p className='text-white text-sm md:text-xs lg:text-sm xl:text-xl'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>

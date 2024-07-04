@@ -49,7 +49,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`fixed text-lg lg:text-xl xl:text-2xl md:hidden top-14 xs:top-20 lg:top-20 xl:top-28 2xl:top-32 right-0 h-screen bg-neutral-800 text-white font-semibold shadow-lg p-2 py-0 z-40 w-2/3 xs:w-80 transition ease-in-out delay-150 duration-300 overflow-auto ${menuVisible ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed text-lg lg:text-xl xl:text-2xl md:hidden top-20 xs:top-20 lg:top-20 xl:top-28 2xl:top-32 right-0 h-screen bg-neutral-800 text-white font-semibold shadow-lg p-2 py-0 z-40 w-2/3 xs:w-80 transition ease-in-out delay-150 duration-300 overflow-auto ${menuVisible ? 'translate-x-0' : 'translate-x-full'}`}>
                 <ul className='py-3 teko text-2xl'>
                     {menuItems.map(item => (
                         <li key={item.id} className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
