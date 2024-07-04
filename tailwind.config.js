@@ -34,6 +34,11 @@ export default {
     extend: {
       colors: {
         'custom-gold': '#96885f',
+        'custom-black': '#161616',
+      },
+      height: {
+        '128': '32rem',
+        '176': '44rem',
       },
     },
   },

@@ -4,6 +4,7 @@ import Gallery from './Components/Gallery';
 import { Navbar } from './Components/Navbar'
 import Home from './Components/Home';
 import Prices from './Components/Prices';
+import About from './Components/About';
 
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -16,7 +17,7 @@ function App() {
   });
 
   return (
-    <div>
+    <div className='bg-zinc-900'>
       <Navbar />
       <motion.div
         className="fixed bottom-0 left-0 right-0 progress-bar bg-red-500"
@@ -30,8 +31,12 @@ function App() {
         <Gallery />
       </section>
 
-      <section className='w-full bg-zinc-900 h-fit py-10 flex flex-col  justify-center items-center'>
+      <section className='w-full h-fit flex flex-col justify-start items-center'>
         <Prices />
+      </section>
+
+      <section className='w-full bg-custom-gold h-fit py-10 flex flex-col  justify-center items-center'>
+        <About />
       </section>
 
     </div>
