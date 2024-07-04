@@ -35,7 +35,11 @@ function App() {
         <Prices />
       </section>
 
-      <section className='w-full bg-custom-gold h-fit py-10 flex flex-col  justify-center items-center'>
+      <section className='w-full bg-custom-black h-fit lg:h-256  py-10 flex flex-col  justify-center items-center'>
+        <About />
+      </section>
+
+      <section className='w-full bg-custom-black h-fit lg:h-256  py-10 flex flex-col  justify-center items-center'>
         <About />
       </section>
 

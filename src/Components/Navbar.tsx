@@ -19,21 +19,21 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="h-14 xs:h-20 lg:h-20 xl:h-24 2xl:h-24 bg-zinc-950 bg-opacity-95 sticky lg:relative top-0 z-50 text-lg lg:text-xl xl:text-2xl">
+            <div className="h-24 xs:h-24 lg:h-28 xl:h-28 2xl:h-32 3xl:h-36 bg-zinc-950 bg-opacity-95 sticky lg:relative top-0 z-50 text-lg lg:text-xl xl:text-2xl">
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-52 flex justify-between items-center h-full'>
-                    <div className='h-14 w-32 xl:w-72'>
-                        <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-14 w-24 md:w-28 lg:h-18 lg:w-32 xl:w-72' />
+                    <div className='h-fit'>
+                        <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className=' w-44 md:w-36 lg:w-44 xl:w-64 2xl:w-72 3xl:w-80 h-auto' />
                     </div>
-                    <div className='hidden md:flex gap-x-2 teko text-2xl xl:text-3xl 2xl:text-4xl'>
+                    <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl'>
                         {menuItems.map(item => (
                             <div key={item.id} className="py-5 text-white  font-semibold hover:transform hover:scale-105 transition-transform">
-                                <a href="" className='p-5'>{item.label}</a>
+                                <a href="" className='p-4'>{item.label}</a>
                             </div>
                         ))}
-                        <a href="" className='text-white font-semibold  p-5 hover:transform hover:scale-105 transition-transform'>Contactos</a>
+                        <a href="" className='text-white font-semibold py-5 p-4 hover:transform hover:scale-105 transition-transform'>Contactos</a>
                     </div>
                     <div className='md:hidden'>
-                        <svg onClick={toggleMenu} className="h-10 w-fit cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" strokeWidth=".6" fill="rgba(0,0,0,0)" strokeLinecap="round">
+                        <svg onClick={toggleMenu} className="h-14 w-fit cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" strokeWidth=".6" fill="rgba(0,0,0,0)" strokeLinecap="round">
                             <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
                                 <animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" />
                                 <animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" />
