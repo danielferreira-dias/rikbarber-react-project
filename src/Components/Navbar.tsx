@@ -27,10 +27,10 @@ const Navbar = () => {
                     <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl'>
                         {menuItems.map(item => (
                             <div key={item.id} className="py-5 text-white  font-semibold hover:transform hover:scale-105 transition-transform">
-                                <a href="" className='p-4'>{item.label}</a>
+                                <a href="" className='p-4 lg:p-2 3xl:p-5'>{item.label}</a>
                             </div>
                         ))}
-                        <a href="" className='text-white font-semibold py-5 p-4 hover:transform hover:scale-105 transition-transform'>Contactos</a>
+                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 3xl:px-4 hover:transform hover:scale-105 transition-transform'>Contactos</a>
                     </div>
                     <div className='md:hidden'>
                         <svg onClick={toggleMenu} className="h-14 w-fit cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" strokeWidth=".6" fill="rgba(0,0,0,0)" strokeLinecap="round">
