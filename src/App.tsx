@@ -6,7 +6,9 @@ import Prices from './Components/Prices';
 import About from './Components/About';
 
 import { motion, useScroll, useSpring } from "framer-motion";
-import Login from './Components/Login';
+
+import EnterPage from './Components/EnterPage';
+
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -18,7 +20,8 @@ function App() {
 
   return (
     <div className='bg-zinc-900'>
-      <Navbar />
+      <EnterPage />
+      {/* <Navbar />
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-50 progress-bar bg-red-500"
         style={{ scaleX }} />
@@ -37,10 +40,7 @@ function App() {
 
       <section className='w-full bg-custom-black h-fit  py-10 flex flex-col  justify-center items-center'>
         <About />
-      </section>
-
-
-
+      </section> */}
     </div>
   )
 }
