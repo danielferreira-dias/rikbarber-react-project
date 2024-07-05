@@ -15,7 +15,7 @@ export default {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '835px',
+      'md': '885px',
       // => @media (min-width: 768px) { ... }
 
       'lg': '1024px',
@@ -30,6 +30,9 @@ export default {
       '3xl': '1700px',
       // => @media (min-width: 1700px) { ... }
 
+      'pc': '1900px',
+      // => @media (min-width: 1900px) { ... }
+
     },
     extend: {
       colors: {
@@ -40,6 +43,7 @@ export default {
         '128': '32rem',
         '176': '44rem',
         '256': '60rem',
+        'navBar': '10svh',
       },
       width: {
         '128': '32rem',

@@ -1,4 +1,3 @@
-import './App.css'
 
 import Gallery from './Components/Gallery';
 import { Navbar } from './Components/Navbar'
@@ -7,6 +6,7 @@ import Prices from './Components/Prices';
 import About from './Components/About';
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import Login from './Components/Login';
 
 function App() {
   const { scrollYProgress } = useScroll();
