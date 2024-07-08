@@ -6,12 +6,12 @@ const router = express.Router();
 // POST /users - Create a new user
 router.post('/setuser', async (req, res) => {
     try {
-        const { username, email, userType } = req.body;
+        const { email, userType, password } = req.body;
 
         const newUser = new User({
-            username,
             email,
-            userType
+            userType,
+            password
             // Add more fields as needed
         });
 

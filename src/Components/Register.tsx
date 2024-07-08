@@ -1,10 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 interface RegisterProps {
     toggleForm: () => void;
 }
 
 const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
+
+
+    const [formData, setFormData] = useState({
+        email: '',
+        userType: 1,
+        password: '',
+        confirmPassword: '',
+    });
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (formData.password != formData.confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+        try {
+            const response = await fetch('http://localhost:3050/api/setuser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    userType: formData.userType,
+                    password: formData.password,
+                }),
+
+            });
+
+            if (response.ok) {
+                console.log('User created successfully');
+            } else {
+                console.error('Error creating user:', response.statusText);
+            }
+        } catch (err) {
+            console.error('Error:', err);
+        }
+    };
+
     return (
 
         <div className="w-full h-full flex items-center justify-center">
@@ -15,18 +64,33 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                         <h1 className="text-white great-vibes-regular text-3xl 2xs:text-3xl font-bold xs:text-5xl md:text-6xl 2xl:text-7xl 3xl:text-8xl mb-5">Rik's Barber Shop</h1>
                         <div className="border-t-2 h-2 flex-1 ml-2"></div>
                     </div>
-                    <form className="space-y-4 xs:space-y-5 w-full">
+                    <form className="space-y-4 xs:space-y-5 w-full" onSubmit={handleSubmit}>
                         <div className='w-full'>
-                            <label htmlFor="username" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Email</label>
-                            <input type="text" id="username" name="username" className="w-full px-3 py-2 border rounded-md" />
+                            <label htmlFor="email" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Email</label>
+                            <input type="email"
+                                id="email"
+                                name="email"
+                                className="w-full px-3 py-2 border rounded-md"
+                                value={formData.email}
+                                onChange={handleChange} />
                         </div>
                         <div className='w-full'>
                             <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Password</label>
-                            <input type="password" id="password" name="password" className="w-full px-3 py-2 border rounded-md" />
+                            <input type="password"
+                                id="password"
+                                name="password"
+                                className="w-full px-3 py-2 border rounded-md"
+                                value={formData.password}
+                                onChange={handleChange} />
                         </div>
                         <div className='w-full'>
-                            <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Confirmar Password</label>
-                            <input type="password" id="confirmpassword" name="confirmpassword" className="w-full px-3 py-2 border rounded-md" />
+                            <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary' >Confirmar Password</label>
+                            <input type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                className="w-full px-3 py-2 border rounded-md"
+                                value={formData.confirmPassword}
+                                onChange={handleChange} />
                         </div>
                         <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800 text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl">Register</button>
                     </form>

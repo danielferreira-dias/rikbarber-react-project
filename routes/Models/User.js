@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 
 // Define a Mongoose schema for User
 const userSchema = new mongoose.Schema({
-    username: String,
     email: String,
     userType: Number,
+    password: String,
     // Add more fields as needed
 });
 
