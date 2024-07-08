@@ -1,5 +1,6 @@
 import express from 'express';
 import User from './Models/User.js';
+import hashPassword from '../utilities/PasswordUtility.js';
 
 const router = express.Router();
 
@@ -8,10 +9,12 @@ router.post('/setuser', async (req, res) => {
     try {
         const { email, userType, password } = req.body;
 
+        const hashedPassword = await hashPassword(password);
+
         const newUser = new User({
             email,
             userType,
-            password
+            password: hashedPassword,
             // Add more fields as needed
         });
 

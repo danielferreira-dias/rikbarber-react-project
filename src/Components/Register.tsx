@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 interface RegisterProps {
     toggleForm: () => void;
 }
