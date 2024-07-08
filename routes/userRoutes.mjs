@@ -25,6 +25,39 @@ router.post('/setuser', async (req, res) => {
     }
 });
 
+// POST /login - Login route
+router.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Find user by email
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        // Compare password
+        const passwordMatch = await passwordUtils.comparePasswords(password, user.password);
+
+        if (!passwordMatch) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        if (passwordMatch) {
+            console.log('Login successful');
+            res.status(200).send('Login successful');
+            // Proceed with login logic (e.g., create session, generate token, etc.)
+        } else {
+            throw new Error('Incorrect password');
+        }
+    } catch (error) {
+        console.error('Login error:', error.message);
+        res.status(401).send('Login failed');
+        // Handle login failure (e.g., show error message to user)
+    }
+});
+
 // GET /users - Get all Users
 router.get('/users', async (req, res) => {
     try {

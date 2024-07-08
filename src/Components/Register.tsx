@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+
 interface RegisterProps {
     toggleForm: () => void;
 }
 
-// Function to validate password
-function validatePassword(password: string) {
+function validatePassword(password: string): string | null {
     // Regular expressions to check for conditions
     const hasUpperCase = /[A-Z]/.test(password); // Check for at least one uppercase letter
     const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password); // Check for at least one special character
@@ -28,6 +28,13 @@ function validatePassword(password: string) {
 
 const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
 
+    const [passwordValidation, setPasswordValidation] = useState({
+        uppercase: false,
+        specialCharacter: false,
+        number: false,
+        minLength: false,
+    });
+
     const [formData, setFormData] = useState({
         email: '',
         userType: 1,
@@ -42,11 +49,25 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
             ...formData,
             [name]: value,
         });
+
+        // Update password validation status
+        setPasswordValidation({
+            uppercase: /[A-Z]/.test(value),
+            specialCharacter: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(value),
+            number: /\d/.test(value),
+            minLength: value.length >= 6,
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // Validate password
         const passwordValidationError = validatePassword(formData.password);
+        if (passwordValidationError) {
+            alert(passwordValidationError);
+            return;
+        }
+
         if (formData.password != formData.confirmPassword) {
             alert('Passwords do not match');
             return;
@@ -60,7 +81,7 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                 body: JSON.stringify({
                     email: formData.email,
                     userType: formData.userType,
-                    password: formData.password,
+                    password: passwordValidationError,
                 }),
 
             });
@@ -114,14 +135,32 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                                 onChange={handleChange} />
                         </div>
                         <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800 text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl">Register</button>
+                        <div className='flex flex-col'>
+                            <div className='flex flex-row items-start gap-x-2'>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.uppercase ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <p className='text-white text-sm'>Password must contain at least one uppercase letter</p>
+                            </div>
+                            <div className='flex flex-row items-start gap-x-2'>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.specialCharacter ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <p className='text-white text-sm'>Password must contain at least one special character</p>
+                            </div>
+                            <div className='flex flex-row items-start gap-x-2'>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.number ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <p className='text-white text-sm'>Password must contain at least one number</p>
+                            </div>
+                            <div className='flex flex-row items-start gap-x-2'>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.minLength ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <p className='text-white text-sm'>Password must be at least 6 characters long</p>
+                            </div>
+                        </div>
                     </form>
                     <div className='flex flex-row mt-5 gap-x-2'>
                         <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Já tens conta?</p>
                         <a className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-custom-gold teko-secondary underline' onClick={toggleForm}>Faz o teu login!</a>
                     </div>
-                    <div className='w-full flex flex-row my-2 items-baseline'>
+                    <div className='w-full flex flex-row xs:my-2 items-baseline h-fit'>
                         <div className="border-t-2 h-2 flex-1 mr-2"></div>
-                        <p className="text-white teko-secondary text-xl 2xs:text-xl font-bold xs:text-2xl md:text-3xl 2xl:text-4xl mb-5">Ou</p>
+                        <p className="text-white teko-secondary text-xl 2xs:text-xl font-bold xs:text-2xl md:text-3xl 2xl:text-4xl mb-5 h-fit">Ou</p>
                         <div className="border-t-2 h-2 flex-1 ml-2"></div>
                     </div>
                     <div className='flex flex-row w-full justify-evenly gap-x-2'>

@@ -1,10 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface LoginProps {
     toggleForm: () => void;
 }
 
 const Login: React.FC<LoginProps> = ({ toggleForm }) => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (formData.password == "") {
+            alert('Type your password');
+            return;
+        }
+        try {
+            const response = await fetch('http://localhost:3050/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            if (response.ok) {
+                console.log('Logged successfully');
+            } else {
+                console.error('Error creating user:', response.statusText);
+            }
+        } catch (err) {
+            console.error('Error:', err);
+        }
+    };
+
     return (
         <div className="w-full h-full flex items-center justify-center">
             <div className="w-full sm:w-5/6 max-w-screen-xl flex flex-col shadow-xl shadow-custom-black h-fit lg:w-4/6 pc:w-1/2 xl:w-4/6 py-5 xl:py-10 rounded-xl bg-gradient-to-br from-custom-black from-50% to-custom-gold z-10 to-95%">
@@ -14,14 +55,23 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
                         <h1 className="text-white great-vibes-regular text-3xl 2xs:text-3xl font-bold xs:text-5xl md:text-6xl 2xl:text-7xl 3xl:text-8xl mb-5">Rik's Barber Shop</h1>
                         <div className="border-t-2 h-2 flex-1 ml-2"></div>
                     </div>
-                    <form className="space-y-5 w-full">
+                    <form className="space-y-5 w-full" onSubmit={handleSubmit}>
                         <div className='w-full'>
                             <label htmlFor="username" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Email</label>
-                            <input type="text" id="username" name="username" className="w-full px-3 py-2 border rounded-md" />
+                            <input type="text"
+                                id="email"
+                                name="email"
+                                className="w-full px-3 py-2 border rounded-md"
+                                value={formData.email}
+                                onChange={handleChange} />
                         </div>
                         <div className='w-full'>
                             <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Password</label>
-                            <input type="password" id="confirmpassword" name="confirmpassword" className="w-full px-3 py-2 border rounded-md" />
+                            <input type="password"
+                                id="password"
+                                name="password" className="w-full px-3 py-2 border rounded-md"
+                                value={formData.password}
+                                onChange={handleChange} />
                         </div>
                         <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800">Login</button>
                     </form>

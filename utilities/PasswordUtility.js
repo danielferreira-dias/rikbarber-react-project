@@ -13,5 +13,16 @@ const hashPassword = async (password) => {
 };
 
 
+// Function to compare a password with a hashed password
+const comparePasswords = async (password, hashedPassword) => {
+    try {
+        const match = await bcrypt.compare(password, hashedPassword);
+        return match;
+    } catch (error) {
+        throw new Error('Error comparing passwords');
+    }
+};
+
+
 // Export as object
-export default { hashPassword };
+export default { hashPassword, comparePasswords };
