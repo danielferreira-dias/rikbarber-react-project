@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
-
 interface RegisterProps {
     toggleForm: () => void;
 }
 
-const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
+// Function to validate password
+function validatePassword(password: string) {
+    // Regular expressions to check for conditions
+    const hasUpperCase = /[A-Z]/.test(password); // Check for at least one uppercase letter
+    const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password); // Check for at least one special character
+    const hasNumber = /\d/.test(password); // Check for at least one digit
+    const hasMinimumLength = password.length >= 6; // Check for minimum length of 6 characters
 
+    // Check all conditions
+    if (!hasUpperCase) {
+        return 'Password must contain at least one uppercase letter';
+    } else if (!hasSpecialCharacter) {
+        return 'Password must contain at least one special character';
+    } else if (!hasNumber) {
+        return 'Password must contain at least one number';
+    } else if (!hasMinimumLength) {
+        return 'Password must be at least 6 characters long';
+    }
+
+    // If all conditions are met
+    return null;
+}
+
+const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -25,6 +46,7 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const passwordValidationError = validatePassword(formData.password);
         if (formData.password != formData.confirmPassword) {
             alert('Passwords do not match');
             return;
