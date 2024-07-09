@@ -4,10 +4,10 @@ import { Navbar } from './Components/Navbar'
 import Home from './Components/Home';
 import Prices from './Components/Prices';
 import About from './Components/About';
+import SideMenu from './Components/SideMenu';
 
 import { motion, useScroll, useSpring } from "framer-motion";
 
-import EnterPage from './Components/EnterPage';
 import React, { useEffect, useState } from 'react';
 
 
@@ -23,6 +23,7 @@ function App() {
   useEffect(() => {
     // Check if token exists in localStorage
     const token = localStorage.getItem('token');
+    console.log(token)
     if (token) {
       setUserIsLogged(true);
     }
@@ -32,6 +33,7 @@ function App() {
   return (
     <div className='bg-zinc-900'>
       <Navbar />
+      <SideMenu userIsLog={userIsLogged} />
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-50 progress-bar bg-red-500"
         style={{ scaleX }} />

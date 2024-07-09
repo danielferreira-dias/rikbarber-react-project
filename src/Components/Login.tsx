@@ -97,7 +97,7 @@ const Login: React.FC = () => {
                             <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800">Login</button>
                         </form>
                         <div className='flex flex-row mt-5 gap-x-2'>
-                            <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary'>NÃ£o tens conta?</p>
+                            <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary'>Não tens conta?</p>
                             <Link className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-custom-gold teko-secondary underline' to={'/Register'}>Regista-te!</Link>
 
                         </div>

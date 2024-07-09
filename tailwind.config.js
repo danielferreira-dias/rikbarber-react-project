@@ -43,13 +43,16 @@ export default {
         '128': '32rem',
         '176': '44rem',
         '256': '60rem',
-        'navBar': '10svh',
+        'navBar': '8svh',
       },
       width: {
         '128': '32rem',
         '176': '44rem',
         '176': '44rem',
       },
+      top : {
+        'navBar': '8svh',
+      }
     },
   },
   plugins: [],

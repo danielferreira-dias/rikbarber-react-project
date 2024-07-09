@@ -1,18 +1,12 @@
+import React from "react";
 
 const Home = () => {
     return (
         <div className='relative w-full h-screen flex justify-center items-center overflow-hidden'>
-            {/* Video Background */}
-            <video
-                autoPlay
-                loop
-                muted
-                className='absolute top-0 left-0 min-w-full min-h-full object-cover z-[-1] filter grayscale'
-            >
-                <source src='/barber-video.mp4' type='video/mp4' />
+            <video className="absolute inset-0 object-cover w-full h-full grayscale" autoPlay muted loop>
+                <source src="barber-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-
             {/* Content Overlay */}
             <div className='relative z-10 w-full h-full flex justify-center items-center'>
                 <div className='flex flex-col gap-y-5 2xl:gap-y-10 text-center'>
