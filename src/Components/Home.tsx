@@ -9,7 +9,7 @@ const Home = () => {
             </video>
             {/* Content Overlay */}
             <div className='relative z-10 w-full h-full flex justify-center items-center'>
-                <div className='flex flex-col gap-y-5 2xl:gap-y-10 text-center'>
+                <div className='flex flex-col gap-y-10 2xl:gap-y-10 text-center'>
                     <div className='flex flex-col'>
                         <h1 className='text-white great-vibes-regular text-4xl font-bold xs:text-5xl md:text-6xl 2xl:text-8xl mb-5'>Rik's Barber Shop</h1>
                         <h2 className='text-white teko text-2xl xs:text-4xl md:text-5xl 2xl:text-6xl'>WE KNOW</h2>
