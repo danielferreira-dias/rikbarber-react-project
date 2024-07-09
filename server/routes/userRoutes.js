@@ -1,4 +1,4 @@
-const User = require('./Models/User.js'); // Assuming you have a User model
+const User = require('../Models/User.js'); // Assuming you have a User model
 const passwordUtils = require('../utilities/PasswordUtility.js'); // Assuming you have utility functions for password handling
 const jwt = require('jsonwebtoken');
 const express = require('express');
@@ -22,7 +22,13 @@ router.post('/setuser', async (req, res) => {
         });
 
         await newUser.save();
-        res.status(201).send('User created successfully');
+
+        // Generate JWT token
+        const token = jwt.sign({ email: newUser.email }, secretKey, { expiresIn: '1h' });
+
+        // Send response with token
+        return res.status(200).json({ token });
+
     } catch (err) {
         console.error('Error creating user:', err);
         res.status(500).send('Error creating user');
@@ -74,7 +80,29 @@ router.get('/users', async (req, res) => {
     }
 });
 
-// Add more routes as needed
+// GET /checkEmail - Check if email exists
+router.get('/checkEmail', async (req, res) => {
+    try {
+        const { email } = req.query;
 
+        if (!email) {
+            return res.status(400).json({ error: 'Email parameter missing' });
+        }
+
+        // Find user by email
+        const user = await User.findOne({ email });
+
+        if (user) {
+            return res.status(200).json({ exists: true, message: 'User already registered' });
+        } else {
+            return res.status(200).json({ exists: false, message: 'Email available' });
+        }
+    } catch (err) {
+        console.error('Error checking email existence:', err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+// Add more routes as needed
 
 module.exports = router;

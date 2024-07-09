@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const userRoutes = require('../routes/userRoutes.js'); // Assuming you have utility functions for password handling
+const userRoutes = require('./routes/userRoutes.js'); // Assuming you have utility functions for password handling
 
 dotenv.config();
 

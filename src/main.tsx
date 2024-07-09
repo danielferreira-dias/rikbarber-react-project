@@ -5,6 +5,7 @@ import App from './App.tsx';
 import './index.css';
 
 import Login from './Components/EnterPage.tsx';
+import Register from './Components/Register.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

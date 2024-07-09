@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import jwt from 'jsonwebtoken';
 
 interface LoginProps {
     toggleForm: () => void;
@@ -14,6 +13,12 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
 
     // Inside your component function
     const navigate = useNavigate();
+
+    const handleContinueAsGuest = () => {
+        // Logic to continue as guest
+        console.log('Continuing as guest');
+        navigate('/Home');  // Redirect to /Home after successful login
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -70,7 +75,7 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
                     </div>
                     <form className="space-y-5 w-full" onSubmit={handleSubmit}>
                         <div className='w-full'>
-                            <label htmlFor="username" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Email</label>
+                            <label htmlFor="username" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary'>Email</label>
                             <input type="text"
                                 id="email"
                                 name="email"
@@ -79,7 +84,7 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
                                 onChange={handleChange} />
                         </div>
                         <div className='w-full'>
-                            <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Password</label>
+                            <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary'>Password</label>
                             <input type="password"
                                 id="password"
                                 name="password" className="w-full px-3 py-2 border rounded-md"
@@ -89,10 +94,11 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
                         <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800">Login</button>
                     </form>
                     <div className='flex flex-row mt-5 gap-x-2'>
-                        <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary'>Não tens conta?</p>
-                        <a className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-custom-gold teko-secondary underline' onClick={toggleForm}>Regista-te!</a>
+                        <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary'>Não tens conta?</p>
+                        <a className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-custom-gold teko-secondary underline' onClick={toggleForm}>Regista-te!</a>
                     </div>
-                    <div className='w-full flex flex-row my-5 items-baseline'>
+                    <a className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-custom-gold teko-secondary mt-2'>Esqueceste-te da password?</a>
+                    <div className='w-full flex flex-row my-2 items-baseline'>
                         <div className="border-t-2 h-2 flex-1 mr-2"></div>
                         <p className="text-white teko-secondary text-xl 2xs:text-xl font-bold xs:text-2xl md:text-3xl 2xl:text-4xl mb-5">Ou</p>
                         <div className="border-t-2 h-2 flex-1 ml-2"></div>
@@ -110,6 +116,12 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
                             <a href="#" className='text-white text-xl md:text-2xl 2xl:text-4xl font-semibold flex items-center justify-center'><img src="apple.svg" alt="" className='w-1/3 max-h-5 sm:max-h-10 2xl:max-h-12' /></a>
                         </button>
                     </div>
+                    <div className='w-full flex flex-row mt-4 items-baseline'>
+                        <div className="border-t-2 h-2 flex-1 mr-2"></div>
+                        <p className="text-white teko-secondary text-xl 2xs:text-xl font-bold xs:text-2xl md:text-3xl 2xl:text-4xl mb-5">Ou</p>
+                        <div className="border-t-2 h-2 flex-1 ml-2"></div>
+                    </div>
+                    <a className='text-2xl 2xs:text-2xl xs:text-2xl sm:text-4xl md:text-4xl 2xl:text-4xl text-white teko-secondary underline text-center' onClick={handleContinueAsGuest}>Continuar como Convidado</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface RegisterProps {
     toggleForm: () => void;
@@ -26,7 +27,11 @@ function validatePassword(password: string): string | null {
     return null;
 }
 
+
 const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
+
+    // Inside your component function
+    const navigate = useNavigate();
 
     const [passwordValidation, setPasswordValidation] = useState({
         uppercase: false,
@@ -61,6 +66,7 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         // Validate password
         const passwordValidationError = validatePassword(formData.password);
         if (passwordValidationError) {
@@ -68,11 +74,34 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
             return;
         }
 
-        if (formData.password != formData.confirmPassword) {
+        if (formData.password !== formData.confirmPassword) {
             alert('Passwords do not match');
             return;
         }
+
         try {
+            // Check if email already exists
+            const emailExistsResponse = await fetch(`http://localhost:3050/api/checkEmail?email=${encodeURIComponent(formData.email)}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!emailExistsResponse.ok) {
+                const errorMessage = await emailExistsResponse.text(); // Get response body as text
+                console.error('Error checking email existence:', errorMessage);
+                alert(`Error checking email existence: ${errorMessage}`);
+                return;
+            }
+
+            const emailExistsData = await emailExistsResponse.json();
+            if (emailExistsData.exists) {
+                alert('Email already exists. Please use a different email.');
+                return;
+            }
+
+            // Proceed to create user if email doesn't exist
             const response = await fetch('http://localhost:3050/api/setuser', {
                 method: 'POST',
                 headers: {
@@ -83,13 +112,32 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                     userType: formData.userType,
                     password: formData.password,
                 }),
-
             });
 
             if (response.ok) {
-                console.log('User created successfully');
+                console.log(response)
+                try {
+                    const responseData = await response.json(); // Assuming the server responds with JSON data
+                    const token = responseData.token; // Assuming the server sends back a token upon successful registration
+
+                    if (token) {
+                        // Store the token in localStorage or sessionStorage for subsequent API requests
+                        localStorage.setItem('token', token); // Example: Storing token in localStorage
+
+                        console.log('Registered successfully');
+                        console.log('Token:', token);
+                        navigate('/Home');  // Redirect to /Home after successful login
+                    } else {
+                        console.error('Token not received in response');
+                    }
+                } catch (jsonError) {
+                    console.error('Error parsing JSON:', jsonError);
+                }
             } else {
-                console.error('Error creating user:', response.statusText);
+                const errorMessage = await response.text(); // Get response body as text
+                console.error('Error creating user:', errorMessage);
+                // Display or handle the error message appropriately
+                alert(`Error creating user: ${errorMessage}`);
             }
         } catch (err) {
             console.error('Error:', err);
@@ -126,7 +174,7 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                                 onChange={handleChange} />
                         </div>
                         <div className='w-full'>
-                            <label htmlFor="password" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary' >Confirmar Password</label>
+                            <label htmlFor="confirmPassword" className='text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl text-neutral-600 teko-secondary' >Confirmar Password</label>
                             <input type="password"
                                 id="confirmPassword"
                                 name="confirmPassword"
