@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {
     toggleForm: () => void;
@@ -9,6 +10,9 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
         email: '',
         password: '',
     });
+
+    // Inside your component function
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -38,6 +42,7 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
 
             if (response.ok) {
                 console.log('Logged successfully');
+                navigate('/Home');  // Redirect to /Home after successful login
             } else {
                 console.error('Error creating user:', response.statusText);
             }

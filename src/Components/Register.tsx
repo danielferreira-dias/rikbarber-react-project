@@ -81,7 +81,7 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                 body: JSON.stringify({
                     email: formData.email,
                     userType: formData.userType,
-                    password: passwordValidationError,
+                    password: formData.password,
                 }),
 
             });
@@ -137,19 +137,19 @@ const Register: React.FC<RegisterProps> = ({ toggleForm }) => {
                         <button type="submit" className="w-full text-white py-2 px-4 rounded-md transition-colors bg-neutral-800 text-xl 2xs:text-xl xs:text-xl md:text-2xl 2xl:text-3xl">Register</button>
                         <div className='flex flex-col'>
                             <div className='flex flex-row items-start gap-x-2'>
-                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.uppercase ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.uppercase ? 'bg-green-500 border-green-500 ' : 'bg-white border-gray-500'}`}></div>
                                 <p className='text-white text-sm'>Password must contain at least one uppercase letter</p>
                             </div>
                             <div className='flex flex-row items-start gap-x-2'>
-                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.specialCharacter ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.specialCharacter ? 'bg-green-500 border-green-500' : 'bg-white border-gray-500'}`}></div>
                                 <p className='text-white text-sm'>Password must contain at least one special character</p>
                             </div>
                             <div className='flex flex-row items-start gap-x-2'>
-                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.number ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.number ? 'bg-green-500 border-green-500' : 'bg-white border-gray-500'}`}></div>
                                 <p className='text-white text-sm'>Password must contain at least one number</p>
                             </div>
                             <div className='flex flex-row items-start gap-x-2'>
-                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.minLength ? 'bg-green-500' : 'bg-white border-gray-500'}`}></div>
+                                <div className={`w-3 h-3 rounded-full border-2 mt-1 ${passwordValidation.minLength ? 'bg-green-500 border-green-500' : 'bg-white border-gray-500'}`}></div>
                                 <p className='text-white text-sm'>Password must be at least 6 characters long</p>
                             </div>
                         </div>

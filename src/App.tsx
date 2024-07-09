@@ -8,6 +8,7 @@ import About from './Components/About';
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import EnterPage from './Components/EnterPage';
+import React from 'react';
 
 
 function App() {
@@ -20,8 +21,7 @@ function App() {
 
   return (
     <div className='bg-zinc-900'>
-      <EnterPage />
-      {/* <Navbar />
+      <Navbar />
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-50 progress-bar bg-red-500"
         style={{ scaleX }} />
@@ -40,7 +40,7 @@ function App() {
 
       <section className='w-full bg-custom-black h-fit  py-10 flex flex-col  justify-center items-center'>
         <About />
-      </section> */}
+      </section>
     </div>
   )
 }
