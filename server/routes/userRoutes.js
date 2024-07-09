@@ -23,11 +23,7 @@ router.post('/setuser', async (req, res) => {
 
         await newUser.save();
 
-        // Generate JWT token
-        const token = jwt.sign({ email: newUser.email }, secretKey, { expiresIn: '1h' });
-
-        // Send response with token
-        return res.status(200).json({ token });
+        res.status(201).send('User created successfully');
 
     } catch (err) {
         console.error('Error creating user:', err);

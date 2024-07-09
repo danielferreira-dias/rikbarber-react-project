@@ -8,7 +8,7 @@ import About from './Components/About';
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import EnterPage from './Components/EnterPage';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 function App() {
@@ -18,6 +18,16 @@ function App() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [userIsLogged, setUserIsLogged] = useState(false)
+  useEffect(() => {
+    // Check if token exists in localStorage
+    const token = localStorage.getItem('token');
+    if (token) {
+      setUserIsLogged(true);
+    }
+  }, []);
+
 
   return (
     <div className='bg-zinc-900'>
