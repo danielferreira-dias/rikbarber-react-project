@@ -1,8 +1,12 @@
-import express from 'express';
-import User from './Models/User.js';
-import passwordUtils from '../utilities/PasswordUtility.js'; // Import as an object
-
+const User = require('./Models/User.js'); // Assuming you have a User model
+const passwordUtils = require('../utilities/PasswordUtility.js'); // Assuming you have utility functions for password handling
+const jwt = require('jsonwebtoken');
+const express = require('express');
 const router = express.Router();
+const dotenv = require('dotenv');
+
+dotenv.config();
+const secretKey = process.env.SECRET_KEY;
 
 // POST /users - Create a new user
 router.post('/setuser', async (req, res) => {
@@ -25,7 +29,7 @@ router.post('/setuser', async (req, res) => {
     }
 });
 
-// POST /login - Login route
+// Assuming this is part of your login route handler
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -34,27 +38,26 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            throw new Error('User not found');
+            return res.status(401).json({ message: 'User not found' });
         }
 
         // Compare password
         const passwordMatch = await passwordUtils.comparePasswords(password, user.password);
-
         if (!passwordMatch) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        if (passwordMatch) {
-            console.log('Login successful');
-            res.status(200).send('Login successful');
-            // Proceed with login logic (e.g., create session, generate token, etc.)
-        } else {
-            throw new Error('Incorrect password');
-        }
+        // Login successful
+        console.log('Login successful');
+
+        // Generate JWT token
+        const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
+
+        // Send response with token
+        return res.status(200).json({ token });
     } catch (error) {
         console.error('Login error:', error.message);
-        res.status(401).send('Login failed');
-        // Handle login failure (e.g., show error message to user)
+        return res.status(500).json({ message: 'Login failed' });
     }
 });
 
@@ -73,4 +76,5 @@ router.get('/users', async (req, res) => {
 
 // Add more routes as needed
 
-export default router;
+
+module.exports = router;

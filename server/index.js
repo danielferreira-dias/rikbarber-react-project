@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import userRoutes from '../routes/userRoutes.mjs'
+const dotenv = require('dotenv');
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const userRoutes = require('../routes/userRoutes.js'); // Assuming you have utility functions for password handling
 
 dotenv.config();
 

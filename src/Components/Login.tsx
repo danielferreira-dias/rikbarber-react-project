@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 interface LoginProps {
     toggleForm: () => void;
@@ -41,10 +42,17 @@ const Login: React.FC<LoginProps> = ({ toggleForm }) => {
             });
 
             if (response.ok) {
-                console.log('Logged successfully');
-                navigate('/Home');  // Redirect to /Home after successful login
+                const data = await response.json();
+                if (data.token) {
+                    console.log('Logged in successfully');
+                    localStorage.setItem('token', data.token); // Store the token
+                    console.log('This is the token ->', data.token); // Store the token
+                    navigate('/Home');  // Redirect to /Home after successful login
+                } else {
+                    console.error('Token not found in response');
+                }
             } else {
-                console.error('Error creating user:', response.statusText);
+                console.error('Error logging in:', response.statusText);
             }
         } catch (err) {
             console.error('Error:', err);
