@@ -29,7 +29,7 @@ const Schedule = () => {
                     </div>
                 </div>
                 <div className='flex flex-col lg:flex-row lg:mb-10 lg:px-10 gap-x-10'>
-                    <div className='flex-grow flex items-start justify-center z-10 pt-20 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6 pc:w-4/6 lg:mt-10 lg:pt-0'>
+                    <div className='flex-grow flex items-start justify-center z-10 pt-10 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6 pc:w-4/6 lg:mt-10 lg:pt-0'>
                         <MyCalendar />
                     </div>
                     <div className='w-full lg:mt-10 lg:w-4/6 xl:w-3/6 2xl:w-2/6 bg-custom-black mt-10 rounded-t-2xl lg:rounded-xl flex items-center p-10'>
