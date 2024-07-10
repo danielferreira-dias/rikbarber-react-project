@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="h-16 xl:h-20 2xl:h-20 pc:h-28 md:absolute sticky bg-custom-black bg-opacity-60 w-full top-0 z-50 text-lg lg:text-xl xl:text-2xl items-center">
+            <div className="h-16 xl:h-20 2xl:h-20 pc:h-28 md:absolute fixed bg-custom-black bg-opacity-60 w-full top-0 z-50 text-lg lg:text-xl xl:text-2xl items-center">
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-44 3xl:px-32 pc:px-44 flex justify-between items-center h-full w-full'>
                     <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-fit w-32 xl:w-44 2xl:w-44 pc:w-64' />
                     <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl items-center h-fit w-70'>
