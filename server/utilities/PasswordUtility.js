@@ -1,5 +1,5 @@
 // passwordUtils.js
-const bcrypt = require('bcrypt')
+import bcrypt from 'bcrypt';
 
 // Function to hash a password
 const hashPassword = async (password) => {
@@ -25,4 +25,4 @@ const comparePasswords = async (password, hashedPassword) => {
 
 
 // Export functions individually
-module.exports = { hashPassword, comparePasswords };
+export { hashPassword, comparePasswords };

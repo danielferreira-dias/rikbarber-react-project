@@ -1,14 +1,16 @@
 
-import Gallery from './Components/Gallery';
+import Gallery from './Components/Gallery.jsx';
 import { Navbar } from './Components/Navbar'
 import Home from './Components/Home';
-import Prices from './Components/Prices';
-import About from './Components/About';
-import SideMenu from './Components/SideMenu';
+import Prices from './Components/Prices.jsx';
+import About from './Components/About.jsx';
+import SideMenu from './Components/SideMenu.jsx';
 
 import { motion, useScroll, useSpring } from "framer-motion";
-
 import React, { useEffect, useState } from 'react';
+
+import { checkToken, authenticateToken } from '../server/utilities/JWTFunction.js';
+
 
 
 function App() {
@@ -20,15 +22,7 @@ function App() {
   });
 
   const [userIsLogged, setUserIsLogged] = useState(false)
-  useEffect(() => {
-    // Check if token exists in localStorage
-    const token = localStorage.getItem('token');
-    console.log(token)
-    if (token) {
-      setUserIsLogged(true);
-    }
-  }, []);
-
+  checkToken(setUserIsLogged);
 
   return (
     <div className='bg-zinc-900'>

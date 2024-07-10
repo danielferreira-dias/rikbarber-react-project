@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 
-interface SideMenuProps {
-    userIsLog: boolean;
-}
 
-const SideMenu: React.FC<SideMenuProps> = ({ userIsLog }) => {
+const SideMenu = ({ userIsLog }) => {
     const [menuVisible, setMenuVisible] = useState(true)
 
     const toggleMenu = () => {

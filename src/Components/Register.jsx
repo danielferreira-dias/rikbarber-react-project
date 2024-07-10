@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-function validatePassword(password: string): string | null {
+function validatePassword(password) {
     // Regular expressions to check for conditions
     const hasUpperCase = /[A-Z]/.test(password); // Check for at least one uppercase letter
     const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password); // Check for at least one special character
@@ -25,7 +25,7 @@ function validatePassword(password: string): string | null {
 }
 
 
-const Register: React.FC = () => {
+const Register = () => {
 
     // Inside your component function
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const Register: React.FC = () => {
         confirmPassword: true,
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -65,7 +65,7 @@ const Register: React.FC = () => {
         });
     };
 
-    const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangePassword = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -88,7 +88,7 @@ const Register: React.FC = () => {
         });
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newFieldValidity = {

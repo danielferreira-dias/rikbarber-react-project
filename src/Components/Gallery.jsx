@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import Card from './Card';
 
-const Gallery: React.FC = () => {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
+const Gallery = () => {
+    const scrollContainerRef = useRef(null);
     const scrollSpeed = 2; // Adjust the speed as needed
 
     const images = [

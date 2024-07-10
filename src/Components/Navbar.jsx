@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { jwtDecode } from "jwt-decode";
+
+import { checkToken, authenticateToken } from '../../server/utilities/JWTFunction';
 
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -17,14 +20,7 @@ const Navbar = () => {
     ];
 
     const [userIsLogged, setUserIsLogged] = useState(false)
-    useEffect(() => {
-        // Check if token exists in localStorage
-        const token = localStorage.getItem('token');
-        console.log(token)
-        if (token) {
-            setUserIsLogged(true);
-        }
-    }, []);
+    checkToken(setUserIsLogged);
 
     return (
         <>
@@ -82,6 +78,5 @@ const Navbar = () => {
         </>
     );
 }
-
 
 export { Navbar };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login: React.FC = () => {
+const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -16,7 +16,7 @@ const Login: React.FC = () => {
         navigate('/Home');  // Redirect to /Home after successful login
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -24,7 +24,7 @@ const Login: React.FC = () => {
         });
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.password == "") {
             alert('Type your password');

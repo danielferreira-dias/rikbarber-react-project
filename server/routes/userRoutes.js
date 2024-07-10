@@ -1,18 +1,19 @@
-const User = require('../Models/User.js'); // Assuming you have a User model
-const passwordUtils = require('../utilities/PasswordUtility.js'); // Assuming you have utility functions for password handling
-const jwt = require('jsonwebtoken');
-const express = require('express');
-const router = express.Router();
-const dotenv = require('dotenv');
+import { Router } from 'express';
+import dotenv from 'dotenv';
+import User from '../Models/User.js'; // Assuming you have a User model
+import * as passwordUtils from '../utilities/PasswordUtility.js'; // Assuming you have utility functions for password handling
+import jwt from 'jsonwebtoken';
 
 dotenv.config();
 const secretKey = process.env.SECRET_KEY;
+
+const router = Router();
 
 // POST /users - Create a new user
 router.post('/setuser', async (req, res) => {
     try {
         const { email, userType, password } = req.body;
-        const hashedPassword = await passwordUtils.hashPassword(password); // Use as an object method
+        const hashedPassword = await passwordUtils.hashPassword(password);
 
         const newUser = new User({
             email,
@@ -24,38 +25,30 @@ router.post('/setuser', async (req, res) => {
         await newUser.save();
 
         res.status(201).send('User created successfully');
-
     } catch (err) {
         console.error('Error creating user:', err);
         res.status(500).send('Error creating user');
     }
 });
 
-// Assuming this is part of your login route handler
+// POST /users/login - User login
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Find user by email
         const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(401).json({ message: 'User not found' });
         }
 
-        // Compare password
         const passwordMatch = await passwordUtils.comparePasswords(password, user.password);
         if (!passwordMatch) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Login successful
-        console.log('Login successful');
-
-        // Generate JWT token
         const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
 
-        // Send response with token
         return res.status(200).json({ token });
     } catch (error) {
         console.error('Login error:', error.message);
@@ -66,17 +59,15 @@ router.post('/login', async (req, res) => {
 // GET /users - Get all Users
 router.get('/users', async (req, res) => {
     try {
-        const Users = await User.find();
-        console.log(Users)
-        // res.json(Users);
-        res.status(200).send(Users)
+        const users = await User.find();
+        res.status(200).json(users);
     } catch (err) {
         console.error('Error fetching users:', err);
         res.status(500).send('Error fetching users');
     }
 });
 
-// GET /checkEmail - Check if email exists
+// GET /users/checkEmail - Check if email exists
 router.get('/checkEmail', async (req, res) => {
     try {
         const { email } = req.query;
@@ -85,7 +76,6 @@ router.get('/checkEmail', async (req, res) => {
             return res.status(400).json({ error: 'Email parameter missing' });
         }
 
-        // Find user by email
         const user = await User.findOne({ email });
 
         if (user) {
@@ -99,6 +89,4 @@ router.get('/checkEmail', async (req, res) => {
     }
 });
 
-// Add more routes as needed
-
-module.exports = router;
+export default router;
