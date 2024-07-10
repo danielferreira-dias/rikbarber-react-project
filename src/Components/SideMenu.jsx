@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const SideMenu = ({ userIsLog }) => {
     const [menuVisible, setMenuVisible] = useState(true)
@@ -14,12 +14,12 @@ const SideMenu = ({ userIsLog }) => {
                 <div className='flex items-center justify-center w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 bg-transparent rounded-r-lg transition duration-300 ease-in-out'>
                     <img src="rik.jpg" alt="" className='w-full h-full object-cover rounded-r-lg' />
                 </div>
-                <div className='flex items-center justify-center w-12 lg:w-16 2xl:w-20 opacity-40 hover:opacity-100 hover:scale-105 h-12 lg:h-16 2xl:h-20 bg-custom-gold rounded-r-sm transition duration-300 ease-in-out'>
-                    <img src="agendar.svg" alt="" className='w-4/6 h-auto' />
-                </div>
-                <div className='flex items-center justify-center w-12 lg:w-16 2xl:w-20 opacity-40 hover:opacity-100 hover:scale-105 h-12 lg:h-16 2xl:h-20 bg-custom-gold rounded-r-sm transition duration-300 ease-in-out'>
+                <div to={'/Schedule'} className='flex items-center justify-center w-12 lg:w-16 2xl:w-20 opacity-40 hover:opacity-100 hover:scale-105 h-12 lg:h-16 2xl:h-20 bg-custom-gold rounded-r-sm transition duration-300 ease-in-out'>
                     <img src="settings.svg" alt="" className='w-4/6 h-auto' />
                 </div>
+                <Link to={'/Schedule'} className='flex items-center justify-center w-12 lg:w-16 2xl:w-20 opacity-40 hover:opacity-100 hover:scale-105 h-12 lg:h-16 2xl:h-20 bg-custom-gold rounded-r-sm transition duration-300 ease-in-out'>
+                    <img src="agendar.svg" alt="" className='w-4/6 h-auto' />
+                </Link>
             </div>
             <div className={`bg-custom-gold w-5 2xl:w-8 flex items-center justify-center rounded-r-lg  `} onClick={toggleMenu}>
                 <img src="arrow.svg" alt="" className={`w-5 h-5 2xl:w-8 2xl:h-8 transition ease-in-out delay-150 duration-500 ${menuVisible ? 'rotate-180' : 'rotate-0'}`} />
