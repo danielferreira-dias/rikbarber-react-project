@@ -7,20 +7,24 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
     };
 
     const menuItems = [
-        { id: 1, label: 'Home' },
-        { id: 2, label: 'Sobre' },
-        { id: 3, label: 'Galeria' },
-        { id: 4, label: 'Serviços' },
+        { id: 1, label: 'Home', path: '/Home' },
+        { id: 2, label: 'Sobre', path: '/Sobre' },
+        { id: 3, label: 'Galeria', path: '/Galeria' },
+        { id: 4, label: 'Serviços', path: '/Serviços' },
+        { id: 5, label: 'Agendar', path: '/Schedule' },
+        { id: 6, label: 'Contactos', path: '/Contactos' },
     ];
 
-    const [userIsLogged, setUserIsLogged] = useState(false)
+    const [userIsLogged, setUserIsLogged] = useState(false);
     checkToken(setUserIsLogged);
+
 
     return (
         <>
@@ -28,15 +32,11 @@ const Navbar = () => {
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-44 3xl:px-32 pc:px-44 flex justify-between items-center h-full w-full'>
                     <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-fit w-32 xl:w-44 2xl:w-44 pc:w-64' />
                     <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl items-center h-fit w-70'>
-                        <Link to={'/Home'} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
-                            Home
-                        </Link>
-                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Sobre</a>
-                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Galeria</a>
-                        <Link to={'/Schedule'} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
-                            Agendar
-                        </Link>
-                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Contactos</a>
+                        {menuItems.map(item => (
+                            <Link to={item.path} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
+                                {item.label}
+                            </Link>
+                        ))}
                     </div>
                     <div className='md:hidden'>
                         <svg onClick={toggleMenu} className="h-12 w-fit cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" strokeWidth=".6" fill="rgba(0,0,0,0)" strokeLinecap="round">
@@ -57,32 +57,20 @@ const Navbar = () => {
             </div>
             <div className={`fixed text-lg top-16 md:hidden -right-1 h-screen bg-neutral-800 text-white font-semibold shadow-lg p-2 py-0 z-40 w-2/3 xs:w-80 transition ease-in-out delay-150 duration-300 overflow-auto ${menuVisible ? 'translate-x-0' : 'translate-x-full'}`}>
                 <ul className='py-3 teko text-2xl'>
-                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
-                        <Link to={'/Home'} className="p-4 block">
-                            Home
-                        </Link>
-                    </li>
-                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
-                        <a href="#" className="p-4 block">Sobre</a>
-                    </li>
-                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
-                        <a href="#" className="p-4 block">Galeria</a>
-                    </li>
-                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
-                        <Link to={'/Schedule'} className="p-4 block" >
-                            Agendar
-                        </Link>
-                    </li>
-                    <li className="py-2 hover:transform hover:scale-105 transition-transform border-b-2  border-neutral-900 border-opacity-30">
-                        <a href="#" className="p-4 block ">Contactos</a>
-                    </li>
+                    {menuItems.map(item => (
+                        <li key={item.id} className="py-2 border-b-2 border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
+                            <Link to={item.path} className="p-4 block">
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
                     <li className="py-2 hover:transform hover:scale-105 transition-transform text-custom-gold">
                         {userIsLogged ? (
-                            <Link to={'/Login'} className="p-4 block ">
+                            <Link to={'/Login'} className="p-4 block">
                                 Terminar Sessão
                             </Link>
                         ) : (
-                            <Link to={'/Login'} className="p-4 block ">
+                            <Link to={'/Login'} className="p-4 block">
                                 Iniciar Sessão
                             </Link>
                         )}
