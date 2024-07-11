@@ -10,7 +10,6 @@ import Loader from './Loader';
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     const location = useLocation();
 
 
