@@ -3,9 +3,9 @@ import React from "react"
 const About = () => {
     return (
         <div className='flex flex-col xl:flex-row lg:gap-x-10 w-full h-full  items-center justify-evenly gap-y-20 md:gap-x-5 py-5 px-5 xs:px-10 sm:px-14 2xl:py-10'>
-            <div className='flex-1 w-3/4 flex flex-col items-center justify-center gap-y-10'>
-                <div className=' sm:w-128 3xl:w-176'>
-                    <div className=' sm:w-128 3xl:w-176 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 h-fit'>
+            <div className='flex-1 w-3/4 sm:w-128 3xl:w-176 h-fit flex flex-col items-center justify-center gap-y-10'>
+                <div className=' sm:w-128 3xl:w-176 h-fit'>
+                    <div className=' sm:w-128 3xl:w-176  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 h-fit'>
                         <img src="rik.jpg" alt="Profile" className=' sm:w-128 3xl:w-176 max-w-full max-h-full object-contain hidden sm:flex h-auto w-auto shadow-lg shadow-custom-black rounded-xl' />
                         <img src="rik2.jpg" alt="Profile" className=' sm:w-128 3xl:w-176 max-w-full max-h-full object-contain hidden sm:flex h-auto w-auto shadow-lg shadow-custom-black rounded-xl' />
                         <img src="rik3.jpg" alt="Profile" className=' sm:w-128 3xl:w-176 max-w-full max-h-full object-contain hidden sm:flex h-auto w-auto shadow-lg shadow-custom-black rounded-xl' />
