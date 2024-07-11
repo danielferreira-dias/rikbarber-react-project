@@ -29,7 +29,7 @@ const Prices = () => {
                     </ul>
                 </div>
             </div>
-            <div className='w-full md:w-1/2 flex flex-col justify-center md:text-left md:justify-start md:items-start  bg-custom-black '>
+            <div className='w-full md:w-1/2 flex flex-col justify-center md:text-left md:justify-start md:items-start  bg-custom-black md:gap-x-5 px-5 xs:px-10 sm:px-14 '>
                 <img src="tools.jpg" alt="Barber tools" className='w-full h-96 2xl:h-128 object-cover border-custom-gold border-2'
                 />
                 <div className='flex flex-col md:flex-col justify-between mt-10 gap-x-2 md:gap-y-2 px-2 w-full'>

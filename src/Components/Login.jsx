@@ -16,7 +16,7 @@ const Login = () => {
     const handleContinueAsGuest = () => {
         // Logic to continue as guest
         console.log('Continuing as guest');
-        navigate('/Home');  // Redirect to /Home after successful login
+        navigate('/');  // Redirect to /Home after successful login
     };
 
     const handleChange = (e) => {
@@ -51,7 +51,7 @@ const Login = () => {
                     console.log('Logged in successfully');
                     localStorage.setItem('token', data.token); // Store the token
                     console.log('This is the token ->', data.token); // Store the token
-                    navigate('/Home');  // Redirect to /Home after successful login
+                    navigate('/');  // Redirect to /Home after successful login
                 } else {
                     console.error('Token not found in response');
                 }
