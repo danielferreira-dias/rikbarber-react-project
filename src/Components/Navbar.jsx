@@ -3,15 +3,17 @@ import { useState } from 'react';
 import { jwtDecode } from "jwt-decode";
 
 import { checkToken, authenticateToken } from '../../server/utilities/JWTFunction';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+import Loader from './Loader';
 
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
-    };
+
 
     const menuItems = [
         { id: 1, label: 'Home', path: '/Home' },
@@ -25,15 +27,31 @@ const Navbar = () => {
     const [userIsLogged, setUserIsLogged] = useState(false);
     checkToken(setUserIsLogged);
 
+    useEffect(() => {
+        const handleRouteChange = () => {
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000); // Loader duration
+        };
+
+        handleRouteChange(); // Initial call
+    }, [location]);
+
+    const toggleMenu = () => {
+        setMenuVisible(!menuVisible);
+    };
+
 
     return (
         <>
+            {loading && <Loader />}
             <div className="h-16 xl:h-20 2xl:h-20 pc:h-28 md:absolute fixed bg-custom-black bg-opacity-60 w-full top-0 z-50 text-lg lg:text-xl xl:text-2xl items-center">
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-44 3xl:px-32 pc:px-44 flex justify-between items-center h-full w-full'>
                     <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-fit w-32 xl:w-44 2xl:w-44 pc:w-64' />
                     <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl items-center h-fit w-70'>
                         {menuItems.map(item => (
-                            <Link to={item.path} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
+                            <Link key={item.id} to={item.path} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
                                 {item.label}
                             </Link>
                         ))}
