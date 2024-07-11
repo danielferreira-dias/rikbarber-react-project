@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { jwtDecode } from "jwt-decode";
 
 import { checkToken, authenticateToken } from '../../server/utilities/JWTFunction';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -16,7 +17,6 @@ const Navbar = () => {
         { id: 2, label: 'Sobre' },
         { id: 3, label: 'Galeria' },
         { id: 4, label: 'Serviços' },
-        { id: 5, label: 'Agendar' },
     ];
 
     const [userIsLogged, setUserIsLogged] = useState(false)
@@ -28,11 +28,14 @@ const Navbar = () => {
                 <div className='px-6 lg:px-20 xl:px-30 2xl:px-44 3xl:px-32 pc:px-44 flex justify-between items-center h-full w-full'>
                     <img src="https://cutstyle.true-emotions.studio/dark-beard/wp-content/uploads/sites/4/2018/08/logo-db2.svg" alt="Logo" className='h-fit w-32 xl:w-44 2xl:w-44 pc:w-64' />
                     <div className='hidden md:flex gap-x-2 teko text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl items-center h-fit w-70'>
-                        {menuItems.map(item => (
-                            <div key={item.id} className="py-5 text-white font-semibold hover:transform hover:scale-105 transition-transform">
-                                <a href="" className='p-4 lg:p-2 2xl:p-3 3xl:p-5'>{item.label}</a>
-                            </div>
-                        ))}
+                        <Link to={'/Home'} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
+                            Home
+                        </Link>
+                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Sobre</a>
+                        <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Galeria</a>
+                        <Link to={'/Schedule'} className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>
+                            Agendar
+                        </Link>
                         <a href="" className='text-white font-semibold py-5 p-4 lg:px-2 2xl:px-3 3xl:px-5 hover:transform hover:scale-105 transition-transform'>Contactos</a>
                     </div>
                     <div className='md:hidden'>
@@ -54,21 +57,35 @@ const Navbar = () => {
             </div>
             <div className={`fixed text-lg top-16 md:hidden -right-1 h-screen bg-neutral-800 text-white font-semibold shadow-lg p-2 py-0 z-40 w-2/3 xs:w-80 transition ease-in-out delay-150 duration-300 overflow-auto ${menuVisible ? 'translate-x-0' : 'translate-x-full'}`}>
                 <ul className='py-3 teko text-2xl'>
-                    {menuItems.map(item => (
-                        <li key={item.id} className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
-                            <a href="#" className="p-4 block">{item.label}</a>
-                        </li>
-                    ))}
+                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
+                        <Link to={'/Home'} className="p-4 block">
+                            Home
+                        </Link>
+                    </li>
+                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
+                        <a href="#" className="p-4 block">Sobre</a>
+                    </li>
+                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
+                        <a href="#" className="p-4 block">Galeria</a>
+                    </li>
+                    <li className="py-2 border-b-2  border-neutral-900 border-opacity-30 hover:transform hover:scale-105 transition-transform">
+                        <Link to={'/Schedule'} className="p-4 block" >
+                            Agendar
+                        </Link>
+                    </li>
                     <li className="py-2 hover:transform hover:scale-105 transition-transform border-b-2  border-neutral-900 border-opacity-30">
                         <a href="#" className="p-4 block ">Contactos</a>
                     </li>
                     <li className="py-2 hover:transform hover:scale-105 transition-transform text-custom-gold">
                         {userIsLogged ? (
-                            <a href="#" className="p-4 block ">Terminar Sessão</a>
+                            <Link to={'/Login'} className="p-4 block ">
+                                Terminar Sessão
+                            </Link>
                         ) : (
-                            <a href="#" className="p-4 block ">Iniciar Sessão</a>
+                            <Link to={'/Login'} className="p-4 block ">
+                                Iniciar Sessão
+                            </Link>
                         )}
-
                     </li>
                     <li className="py-2 hover:transform hover:scale-105 transition-transform">
                         <a href="#" className="p-4 block"></a>
