@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const menuItems = [
         { id: 1, label: 'Home', path: '/' },
-        { id: 2, label: 'Sobre', path: '/Sobre' },
+        { id: 2, label: 'Sobre', path: '/AboutPage' },
         { id: 3, label: 'Galeria', path: '/Galeria' },
         { id: 4, label: 'Serviços', path: '/Serviços' },
         { id: 5, label: 'Agendar', path: '/Schedule' },

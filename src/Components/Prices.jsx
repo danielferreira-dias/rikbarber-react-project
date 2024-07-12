@@ -33,7 +33,7 @@ const Prices = () => {
                 <img src="tools.jpg" alt="Barber tools" className='w-full h-96 2xl:h-128 object-cover border-custom-gold border-2'
                 />
                 <div className='flex flex-col md:flex-col justify-between mt-10 gap-x-2 md:gap-y-2 px-2 w-full'>
-                    <h1 className=' text-2xl xs:text-3xl sm:text-4xl 2xl:text-6xl w-2/3 teko text-white'>PESQUISA SOBRE OS MEUS <span className='text-custom-gold'>SERVIÃ‡OS</span></h1>
+                    <h1 className=' text-2xl xs:text-3xl sm:text-4xl 2xl:text-6xl w-2/3 teko text-white'>PESQUISA SOBRE OS MEUS <span className='text-custom-gold'>SERVIÇOS</span></h1>
                     <div className='flex flex-col sm:flex-row gap-y-5 w-full items-center justify-center my-10 gap-x-2'>
                         <div className='flex w-3/4 h-72 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-96 xl:h-96 border-2 border-white border-opacity-30 flex-col items-center justify-center gap-y-5 px-10 md:px-5'>
                             <img src="beard.svg" alt="" className='w-12 md:w-8 lg:w-14 xl:w-20' />

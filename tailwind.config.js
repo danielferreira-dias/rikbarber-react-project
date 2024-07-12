@@ -43,6 +43,7 @@ export default {
         '128': '32rem',
         '176': '44rem',
         '256': '60rem',
+        '40svh': '40svh',
         'navBar': '9svh',
       },
       width: {

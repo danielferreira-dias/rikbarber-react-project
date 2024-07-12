@@ -19,31 +19,31 @@ const MyCalendar = () => {
                 value={date}
             />
             <div className='grid grid-cols-3 gap-4 w-full sm:w-5/6 xl:w-[100%] mt-10 '>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary '>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary '>
                     9:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     10:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     11:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     12:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     14:30h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     15:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     16:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     17:00h
                 </button>
-                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                <button className='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
                     18:00h
                 </button>
             </div>
