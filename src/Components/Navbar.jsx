@@ -17,10 +17,10 @@ const Navbar = () => {
     const menuItems = [
         { id: 1, label: 'Home', path: '/' },
         { id: 2, label: 'Sobre', path: '/AboutPage' },
-        { id: 3, label: 'Galeria', path: '/Galeria' },
+        { id: 3, label: 'Galeria', path: '/GalleryPage' },
         { id: 4, label: 'Serviços', path: '/Serviços' },
         { id: 5, label: 'Agendar', path: '/Schedule' },
-        { id: 6, label: 'Contactos', path: '/Contactos' },
+        { id: 6, label: 'Loja', path: '/Loja' },
     ];
 
     const [userIsLogged, setUserIsLogged] = useState(false);

@@ -8,6 +8,7 @@ import Register from './Components/Register.jsx';
 import Login from './Components/Login.jsx';
 import Schedule from './Components/Schedule.jsx';
 import AboutPage from './Components/AboutPage.jsx';
+import GalleryPage from './Components/GalleryPage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/Login" element={<Login />} />
         <Route path="/AboutPage" element={<AboutPage />} />
+        <Route path="/GalleryPage" element={<GalleryPage />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/" element={<App />} />
         <Route path="/Schedule" element={<Schedule />} />

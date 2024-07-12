@@ -56,7 +56,6 @@ function App() {
             <div className='flex flex-col w-full items-center'>
               <p>© Copyright 2024. All rights reserved</p>
               <p className='font-bold'>Made by Daniel Dias</p>
-
             </div>
           </div>
         </footer>
