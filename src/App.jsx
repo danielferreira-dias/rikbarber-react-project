@@ -48,9 +48,19 @@ function App() {
         <About />
       </section>
 
-      <footer className='h-128 bg-white flex md:gap-x-5 py-5 px-5 xs:px-10 sm:px-14 2xl:py-10'>
+      <div className='flex flex-col'>
+        <img src="border.a8ad40c0.png" alt="" className='w-full h-16' />
+        <footer className='h-40 bg-white flex md:gap-x-5 py-5 px-5 xs:px-10 sm:px-14 2xl:py-10'>
+          <div className='flex flex-col pb-3 w-full items-center gap-y-2'>
+            <img src="instagram.svg" alt="" className='w-12 grayscale' />
+            <div className='flex flex-col w-full items-center'>
+              <p>© Copyright 2024. All rights reserved</p>
+              <p className='font-bold'>Made by Daniel Dias</p>
 
-      </footer>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   )
 }
