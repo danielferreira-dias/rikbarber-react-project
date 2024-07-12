@@ -18,8 +18,34 @@ const MyCalendar = () => {
                 onChange={onChange}
                 value={date}
             />
-            <div className='w-5/6 xl:w-4/6 pc:w-5/6  h-16 bg-white mt-5 rounded-xl border-2 border-gray-200 flex items-center'>
-                <p className='text-xl 2xs:text-xl xs:text-xl md:text-2xl sm:text-3xl 2xl:text-3xl text-neutral-600 teko-secondary ml-4 text-opacity-60'>Your hour will appear here.</p>
+            <div className='grid grid-cols-3 gap-4 w-full sm:w-5/6 xl:w-[100%] mt-10 '>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary '>
+                    9:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    10:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    11:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    12:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    14:30h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    15:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    16:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    17:00h
+                </button>
+                <button class='rounded-md p-2 h-16 flex justify-center items-center text-xl lg:text-3xl font-semibold bg-white teko-secondary'>
+                    18:00h
+                </button>
             </div>
         </div>
     );

@@ -47,6 +47,10 @@ function App() {
       <section className='w-full bg-custom-black h-fit  py-10 flex flex-col  justify-center items-center'>
         <About />
       </section>
+
+      <footer className='h-128 bg-white flex md:gap-x-5 py-5 px-5 xs:px-10 sm:px-14 2xl:py-10'>
+
+      </footer>
     </div>
   )
 }

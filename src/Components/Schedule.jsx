@@ -28,13 +28,13 @@ const Schedule = () => {
                         </h2>
                     </div>
                 </div>
-                <div className='flex flex-col lg:flex-row lg:mb-10 lg:px-10 gap-x-10'>
-                    <div className='flex-grow flex items-start justify-center z-10 pt-10 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6 pc:w-4/6 lg:mt-10 lg:pt-0'>
+                <div className='flex flex-col xl:flex-row xl:mb-10 xl:px-10 gap-x-10 w-full'>
+                    <div className='flex-grow flex items-start justify-center z-10 pt-10 w-full xl:w-5/6 2xl:w-4/6 pc:w-5/6 lg:mt-10 lg:pt-0'>
                         <MyCalendar />
                     </div>
-                    <div className='w-full lg:mt-10 lg:w-4/6 xl:w-3/6 2xl:w-2/6 bg-custom-black mt-10 rounded-t-2xl lg:rounded-xl flex items-center p-10'>
+                    <div className='w-full xl:mt-10 xl:w-4/6 2xl:w-3/6 bg-custom-black mt-10 rounded-t-2xl lg:rounded-xl flex items-center sm:p-10'>
                         <div className='flex flex-grow flex-col items-center justify-start mt-10 z-10  my-10 '>
-                            <div className='flex flex-col items-center justify-center gap-y-5'>
+                            <div className='flex flex-col items-center justify-center gap-y-5 w-full sm:w-5/6 px-4'>
                                 <div className='flex flex-row gap-x-5'>
                                     <h1 className='text-4xl xs:text-5xl sm:text-6xl 2xl:text-6xl text-white teko'>
                                         Schedule Resume
