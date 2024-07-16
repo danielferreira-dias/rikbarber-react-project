@@ -6,15 +6,21 @@ import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
-// Set up your CORS options
+const app = express();
+
+// Set up CORS options
 const allowedOrigins = ["http://localhost:5050", "http://localhost:3050", "http://localhost:5173", "https://rikbarber-react-project.vercel.app"];
 
 const corsOptions = {
-    origin: '*',
-    credentials: true, // if needed
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.log(origin);
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
 };
-
-const app = express();
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -23,7 +29,7 @@ app.use(express.json());
 const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri, {
-    dbName: "BarberDataBase"
+    dbName: "BarberDataBase",
 })
     .then(() => {
         console.log("Database connected");
@@ -32,12 +38,10 @@ mongoose.connect(uri, {
         console.error("Could not connect to database", err);
     });
 
-
-
 // Use user routes middleware
 app.use('/api', userRoutes);
 
-// listen for requests
+// Listen for requests
 const PORT = process.env.PORT || 3050;
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
@@ -47,5 +51,3 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('Hello Planet!');
 });
-
-
