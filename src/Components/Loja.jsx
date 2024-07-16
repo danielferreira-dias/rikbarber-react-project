@@ -16,6 +16,8 @@ const Loja = () => {
                 if (Array.isArray(response.data)) {
                     setStoreItems(response.data);
                     setRecentItems(response.data.slice(-2)); // Get the last 2 items from the array
+                    console.log(response.data)
+
                 } else {
                     console.error('Expected an array of products, but got:', response.data);
                 }
@@ -42,6 +44,9 @@ const Loja = () => {
             setCurrentPage(prevPage => prevPage - 1);
         }
     };
+
+    console.log("Recent Items ->", recentItems)
+    console.log("Store Items ->", storeItems)
 
     return (
         <div className='w-full h-full flex flex-col bg-custom-black'>
