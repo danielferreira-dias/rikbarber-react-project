@@ -21,13 +21,13 @@ function App() {
     restDelta: 0.001
   });
 
-  const [userIsLogged, setUserIsLogged] = useState(false)
-  checkToken(setUserIsLogged);
+  // const [userIsLogged, setUserIsLogged] = useState(false)
+  // checkToken(setUserIsLogged);
 
   return (
     <div className='bg-zinc-900'>
       <Navbar />
-      <SideMenu userIsLog={userIsLogged} />
+      {/* <SideMenu userIsLog={userIsLogged} /> */}
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-50 progress-bar bg-red-500"
         style={{ scaleX }} />

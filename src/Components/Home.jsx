@@ -20,7 +20,7 @@ const Home = () => {
                             <a href="#" className='text-white text-xl md:text-2xl 2xl:text-4xl font-semibold'>Sobre</a>
                         </button>
                         <button className='w-32 h-16 md:w-44 2xl:w-64 2xl:h-28 bg-custom-gold bg-opacity-80 border-white border-2'>
-                            <a href="#" className='text-white text-xl md:text-2xl 2xl:text-4xl font-semibold'>Agendar</a>
+                            <a href="https://buk.pt/rickyspot19" className='text-white text-xl md:text-2xl 2xl:text-4xl font-semibold'>Agendar</a>
                         </button>
                     </div>
                 </div>

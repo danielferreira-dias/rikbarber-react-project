@@ -15,7 +15,7 @@ export default {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '885px',
+      'md': '768px',
       // => @media (min-width: 768px) { ... }
 
       'lg': '1024px',
@@ -38,6 +38,7 @@ export default {
       colors: {
         'custom-gold': '#96885f',
         'custom-black': '#161616',
+        'custom-gray': "#2c2c2c",
       },
       height: {
         '128': '32rem',

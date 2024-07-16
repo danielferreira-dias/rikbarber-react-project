@@ -12,19 +12,16 @@ const Navbar = () => {
     const [loading, setLoading] = useState(false);
     const location = useLocation();
 
-
-
     const menuItems = [
         { id: 1, label: 'Home', path: '/' },
         { id: 2, label: 'Sobre', path: '/AboutPage' },
         { id: 3, label: 'Galeria', path: '/GalleryPage' },
         { id: 4, label: 'Serviços', path: '/ServicePage' },
-        { id: 5, label: 'Agendar', path: '/Schedule' },
         { id: 6, label: 'Loja', path: '/Loja' },
     ];
 
-    const [userIsLogged, setUserIsLogged] = useState(false);
-    checkToken(setUserIsLogged);
+    // const [userIsLogged, setUserIsLogged] = useState(false);
+    // checkToken(setUserIsLogged);
 
     useEffect(() => {
         const handleRouteChange = () => {
@@ -81,7 +78,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
-                    <li className="py-2 hover:transform hover:scale-105 transition-transform text-custom-gold">
+                    {/* <li className="py-2 hover:transform hover:scale-105 transition-transform text-custom-gold">
                         {userIsLogged ? (
                             <Link to={'/Login'} className="p-4 block">
                                 Terminar Sessão
@@ -91,7 +88,7 @@ const Navbar = () => {
                                 Iniciar Sessão
                             </Link>
                         )}
-                    </li>
+                    </li> */}
                     <li className="py-2 hover:transform hover:scale-105 transition-transform">
                         <a href="#" className="p-4 block"></a>
                     </li>

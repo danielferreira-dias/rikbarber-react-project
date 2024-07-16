@@ -10,18 +10,20 @@ import Schedule from './Components/Schedule.jsx';
 import AboutPage from './Components/AboutPage.jsx';
 import GalleryPage from './Components/GalleryPage.jsx';
 import ServicePage from './Components/ServicePage.jsx';
+import Loja from './Components/Loja.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/Login" element={<Login />} />
+        {/* <Route path="/Login" element={<Login />} /> */}
         <Route path="/AboutPage" element={<AboutPage />} />
         <Route path="/GalleryPage" element={<GalleryPage />} />
         <Route path="/ServicePage" element={<ServicePage />} />
-        <Route path="/Register" element={<Register />} />
+        {/* <Route path="/Register" element={<Register />} /> */}
         <Route path="/" element={<App />} />
         <Route path="/Schedule" element={<Schedule />} />
+        <Route path="/Loja" element={<Loja />} />
       </Routes>
     </Router>
   </React.StrictMode>,

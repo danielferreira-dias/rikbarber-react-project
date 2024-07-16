@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import dotenv from 'dotenv';
 import User from '../Models/User.js'; // Assuming you have a User model
+import Product from '../Models/Product.js';
 import * as passwordUtils from '../utilities/PasswordUtility.js'; // Assuming you have utility functions for password handling
 import jwt from 'jsonwebtoken';
 
@@ -87,6 +88,68 @@ router.get('/checkEmail', async (req, res) => {
         console.error('Error checking email existence:', err);
         res.status(500).json({ error: 'Server error' });
     }
+});
+
+
+let storeItems = [];
+
+// Function to update storeItems
+const updateStoreItems = async () => {
+    try {
+        const products = await Product.find();
+        storeItems = products.map(product => ({
+            img: product.img,
+            name: product.name,
+            desc: product.desc,
+            price: product.price
+        }));
+    } catch (err) {
+        console.error('Error updating storeItems:', err);
+    }
+};
+
+// Update storeItems at startup
+updateStoreItems();
+
+// POST /setProduct - Create a new Product
+router.post('/setProduct', async (req, res) => {
+    try {
+        const { img, name, desc, price } = req.body;
+
+        const newProduct = new Product({
+            img,
+            name,
+            desc,
+            price
+        });
+
+        await newProduct.save();
+
+        // Update storeItems after saving new product
+        await updateStoreItems();
+
+        res.status(201).send('Product created successfully');
+    } catch (err) {
+        console.error('Error creating Product:', err);
+        res.status(500).send('Error creating Product');
+    }
+});
+
+// GET /products - Get all Products
+router.get('/products', async (req, res) => {
+    try {
+        // You can return products directly from the database
+        const products = await Product.find();
+        res.status(200).json(products);
+    } catch (err) {
+        console.error('Error fetching Products:', err);
+        res.status(500).send('Error fetching Products');
+    }
+});
+
+// Example route to get storeItems
+router.get('/storeItems', (req, res) => {
+    res.status(200).json(storeItems);
 });
 
 export default router;

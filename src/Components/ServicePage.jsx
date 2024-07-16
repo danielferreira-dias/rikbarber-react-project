@@ -5,8 +5,8 @@ const ServicePage = () => {
     return (
         <div className='w-full h-full flex flex-col  bg-custom-black'>
             <Navbar></Navbar>
-            <div className='h-72 md:h-80 2xl:h-96 3xl:h-128 w-full bg-custom-black flex items-center justify-center'>
-                <img src="rikblur.jpg" alt="" className='h-72 md:h-80 2xl:h-96 3xl:h-128 w-full absolute object-cover' />
+            <div className='h-96 md:h-128 lg:h-176  w-full bg-custom-black flex flex-col items-center justify-center'>
+                <img src="rikblur.jpg" alt="" className='h-96 md:h-128 lg:h-176  w-full absolute object-cover' />
                 <div className='flex flex-col h-full items-center justify-center gap-y-2 w-full 2xl:mt-10'>
                     <h1 className=' text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl text-white z-10 teko '>SERVIÇOS</h1>
                     <div className="flex flex-row items-baseline gap-x-2 w-5/6 sm:w-1/2 2xl:w-2/6 px-2 mb-5 z-10">
@@ -15,6 +15,7 @@ const ServicePage = () => {
                         <div className="border-t-2 h-2 flex-1 ml-2 "></div>
                     </div>
                 </div>
+                <div className='bg-gradient-to-t from-custom-black opacity-90 to-transparent h-16 w-full relative bottom-0 '></div>
             </div>
             <div className='flex flex-col w-full py-5 px-5 xs:px-10 sm:px-14 2xl:py-10'>
                 <div className='flex flex-col h-fit bg-custom-black  mt-20'>
