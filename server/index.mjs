@@ -7,7 +7,7 @@ import userRoutes from './routes/userRoutes.js';
 dotenv.config();
 
 // Set up your CORS options
-const allowedOrigins = ["http://localhost:5050", "http://localhost:3050", "http://localhost:5173"];
+const allowedOrigins = ["http://localhost:5050", "http://localhost:3050", "http://localhost:5173", "https://rikbarber-react-project.vercel.app"];
 
 const corsOptions = {
     origin: function (origin, callback) {
