@@ -43,7 +43,7 @@ const Loja = () => {
             </div>
             <div className='flex flex-col bg-custom-black px-6 lg:px-20 xl:px-30 2xl:px-44 3xl:px-32 pc:px-44 my-20'>
                 <h1 className=' text-4xl xs:text-5xl sm:text-6xl 2xl:text-8xl text-white z-10 teko '>OS MELHORES <span className='text-custom-gold'>PRODUTOS</span></h1>
-                <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 pc:grid-cols-4 items-center justify-start gap-5 my-10'>
+                <div className='flex flex-row flex-wrap items-center justify-center self-center gap-5 my-10'>
                     {storeItems.map(item => (
                         <CardItem key={item._id} img={item.img} name={item.name} desc={item.desc} price={item.price} />
                     ))}
