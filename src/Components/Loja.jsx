@@ -90,8 +90,8 @@ const Loja = () => {
                             <div className='w-full sm:w-128 h-fit p-10 bg-custom-gray rounded-sm flex flex-col items-center justify-center gap-y-6  px-10 text-center'>
                                 <h1 className=' text-3xl xs:text-3xl sm:text-4xl  text-white z-10 teko mb-10'>Recent Products Added</h1>
                                 {recentItems.map(item => (
-                                    <div className='flex flex-col justify-start w-full' key={item._id}>
-                                        <div className='flex flex-col sm:flex-row items-center h-fit'>
+                                    <div className='flex flex-col justify-start  h-44 w-full' key={item._id}>
+                                        <div className='flex flex-col sm:flex-row items-center w-full h-44'>
                                             <img src={item.img} alt={item.name} className='w-44 h-44' />
                                             <div className='flex flex-col'>
                                                 <p className='text-3xl xs:text-xl sm:text-2xl text-white z-10 teko'>{item.name}</p>
