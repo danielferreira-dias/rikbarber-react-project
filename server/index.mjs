@@ -18,6 +18,7 @@ const corsOptions = {
             callback(new Error("Not allowed by CORS"));
         }
     },
+    credentials: true, // if you need to send cookies or HTTP authentication information
 };
 
 const app = express();
