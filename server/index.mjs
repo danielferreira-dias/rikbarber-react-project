@@ -10,15 +10,8 @@ dotenv.config();
 const allowedOrigins = ["http://localhost:5050", "http://localhost:3050", "http://localhost:5173", "https://rikbarber-react-project.vercel.app"];
 
 const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.log(origin);
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true, // if you need to send cookies or HTTP authentication information
+    origin: '*',
+    credentials: true, // if needed
 };
 
 const app = express();
